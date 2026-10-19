@@ -26,7 +26,7 @@ Agentic Code Review mit Policy-as-Code, ADRs für Architekturentscheidungen, Con
 
 ## Was drin ist
 
-- Tech-Stack-Regeln (Vite + React + TypeScript, Node/Express, PostgreSQL, Docker, PHP für Altprojekte)
+- Tech-Stack-Regeln für alle gängigen JS/TS-Frameworks (Next.js, Vite + React, Vue/Nuxt, Svelte/SvelteKit, Astro, Angular), Node-APIs, PostgreSQL, Docker und PHP für Altprojekte
 - Agents für Review, Verifikation und Specs
 - Slash-Commands für Build, Review und Commit-Workflows
 

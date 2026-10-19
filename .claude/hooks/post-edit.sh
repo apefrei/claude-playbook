@@ -10,7 +10,7 @@ fi
 
 # Erkennung anhand Dateiendung
 case "$FILE" in
-  *.ts|*.tsx|*.js|*.jsx|*.json|*.css|*.md)
+  *.ts|*.tsx|*.js|*.jsx|*.mjs|*.cjs|*.vue|*.svelte|*.astro|*.json|*.css|*.scss|*.html|*.md)
     # TypeScript / JavaScript Projekte: Prettier (nur wenn im Projekt installiert)
     if [ -f "package.json" ] && [ -x "node_modules/.bin/prettier" ]; then
       ./node_modules/.bin/prettier --write "$FILE" 2>/dev/null

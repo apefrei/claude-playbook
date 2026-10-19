@@ -13,6 +13,17 @@ build/
 coverage/
 .vite/
 
+# Framework-Build-Output
+.next/
+out/
+.nuxt/
+.output/
+.svelte-kit/
+.astro/
+.angular/
+.vercel/
+.turbo/
+
 # PHP
 vendor/
 

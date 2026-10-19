@@ -16,7 +16,7 @@ Ich arbeite in allen privaten Projekten mit Claude Code. Ohne gemeinsame Grundla
 Constraints:
 
 - Bestehende Projekte müssen weiterlaufen, ohne Massenmigration
-- Verschiedene Stacks (TypeScript/React, Node-API, Docker, PHP-Altprojekte) müssen abgedeckt sein
+- Verschiedene Stacks (alle gängigen JS/TS-Frameworks, Node-APIs, Docker, PHP-Altprojekte) müssen abgedeckt sein
 - Neue Projekte sollen mit wenig Aufwand startklar sein
 
 ## Entscheidung

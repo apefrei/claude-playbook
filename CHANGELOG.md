@@ -4,6 +4,13 @@ Alle nennenswerten Änderungen am Claude Playbook. Format nach [Keep a Changelog
 
 ## [Unreleased]
 
+### Geändert
+- `.claude/rules/dev-stack.md` deckt alle gängigen JS/TS-Frameworks ab: Next.js, Vite + React,
+  Vue/Nuxt, Svelte/SvelteKit, Astro, Angular, React Router sowie Express, Fastify, Hono und NestJS.
+  Framework und Paketmanager (npm, pnpm, yarn, bun) werden aus Config-Files und Lockfile erkannt
+- Security-, Quality-, Accessibility- und Policy-Rules, `/build-and-test`, `verify-app`,
+  Permissions, `.gitignore` und Worktree-Doku entsprechend erweitert
+
 ## [0.1.0] - 2026-10-19
 
 Initialer Stand als persönliches Playbook für private Projekte.

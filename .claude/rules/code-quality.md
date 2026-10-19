@@ -1,6 +1,6 @@
 ---
 description: Code-Qualitätsregeln für TypeScript und PHP
-globs: "*.ts,*.tsx,*.js,*.jsx,*.php"
+globs: "*.ts,*.tsx,*.js,*.jsx,*.vue,*.svelte,*.astro,*.php"
 ---
 
 # Code-Qualität
@@ -11,7 +11,8 @@ globs: "*.ts,*.tsx,*.js,*.jsx,*.php"
 - Kein `console.log` im Produktionscode. Im Backend einen Logger verwenden (z.B. pino).
 - Komponenten unter 200 Zeilen. Bei Überschreitung aufteilen.
 - Kein duplizierter Code. Gemeinsame Logik in Hilfsfunktionen extrahieren.
-- Imports: absolute Pfade bevorzugen (z.B. `@/lib/utils`).
+- Imports: absolute Pfade bevorzugen (z.B. `@/lib/utils`, bei SvelteKit `$lib/...`).
+- Framework-Konventionen vor eigenen Mustern: Next.js Server/Client-Grenze, Vue Composables, Svelte Runes, Angular Signals.
 
 ## PHP
 - PSR-12 Coding Standard einhalten.

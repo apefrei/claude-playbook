@@ -1,6 +1,6 @@
 ---
 description: Zugänglichkeitsregeln für UI-Komponenten
-globs: "*.tsx,*.jsx,*.html,*.php"
+globs: "*.tsx,*.jsx,*.vue,*.svelte,*.astro,*.html,*.php"
 ---
 
 # Zugänglichkeit (Accessibility)

@@ -42,7 +42,7 @@ Standard-Hooks pro Projekt:
 - Linter (ESLint, bei PHP z.B. PHP_CodeSniffer)
 - Formatter (Prettier)
 - Secret-Scanner (gitleaks)
-- Type-Check (`tsc --noEmit`)
+- Type-Check je nach Framework (`tsc --noEmit`, `vue-tsc`, `svelte-check`, `astro check`)
 - Schnelle Tests (Unit, nicht Integration)
 
 Konfiguration in `.husky/` oder `.git/hooks/`, ergänzt durch Claude-Hooks in `.claude/hooks/`.

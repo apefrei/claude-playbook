@@ -22,8 +22,8 @@ Regeln für parallele Claude-Code-Sessions mit Git Worktrees. Ausführliche Anle
 
 ## Setup-Hinweise
 
-- `node_modules` und `vendor` werden nicht geteilt. Pro Worktree neu installieren.
-- Parallele Dev-Server brauchen unterschiedliche Ports: `npm run dev -- --port 5174` (Vite), `PORT=3001 npm run dev` (API). Bei Docker Compose: eigenen Projektnamen (`-p`) und andere Host-Ports verwenden.
+- `node_modules`, `vendor` und Build-Caches (`.next`, `.nuxt`, `.svelte-kit`, `.astro`) werden nicht geteilt. Pro Worktree neu installieren.
+- Parallele Dev-Server brauchen unterschiedliche Ports: `npm run dev -- --port 5174` (Vite, Nuxt, SvelteKit, Astro), `npm run dev -- -p 3001` (Next.js), `PORT=3001 npm run dev` (API). Bei Docker Compose: eigenen Projektnamen (`-p`) und andere Host-Ports verwenden.
 - Sensitive Files (`.env`, `mcp.json`) werden über `.worktreeinclude` kopiert, nicht aus Git geladen.
 
 ## Limit

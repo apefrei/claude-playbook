@@ -17,12 +17,12 @@ Maschinenlesbare Regeln, die der `code-reviewer` Agent und CI durchsetzen. Ergä
 Der `code-reviewer` blockiert (🛑) automatisch bei:
 
 - Hardcoded Secrets, API-Keys, Tokens, Passwörter
-- `eval()`, `Function()`, `dangerouslySetInnerHTML` ohne Sanitizer
+- `eval()`, `Function()`, `dangerouslySetInnerHTML` / `v-html` / `{@html}` / `set:html` ohne Sanitizer
 - SQL-String-Konkatenation mit Variablen
 - `any` Type in TypeScript ausserhalb generierter Files
 - Direkte `$_GET`/`$_POST` Nutzung in PHP
 - Request-Body ungefiltert in DB-Queries oder Objekte übernommen (Mass Assignment)
-- KI- oder andere API-Keys im Frontend-Code
+- KI- oder andere API-Keys im Frontend-Code oder in Env-Variablen mit öffentlichem Prefix (`NEXT_PUBLIC_`, `VITE_`, ...)
 - Fehlende Validierung an externen Eingaben (HTTP, CLI, File)
 
 ## Pflicht für Hochrisiko-Änderungen

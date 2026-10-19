@@ -37,7 +37,7 @@ Jeder Worktree hat eigene Working Files. Folgendes muss pro Worktree neu erzeugt
 
 - `node_modules` (`npm install`, bei separater API auch in `api/`)
 - `vendor` (`composer install`)
-- `dist`, `build`, `.vite`
+- `dist`, `build`, `.vite`, `.next`, `.nuxt`, `.svelte-kit`, `.astro`
 - Lokale Datenbank-Files (SQLite)
 
 ## Sensitive Files
@@ -51,8 +51,11 @@ Die Datei verwendet gitignore-Syntax. Doku: [code.claude.com/docs/en/worktrees](
 Parallele Dev-Server auf demselben Port kollidieren. Pro Worktree einen anderen Port:
 
 ```bash
-# Vite (Frontend)
+# Vite, Nuxt, SvelteKit, Astro
 npm run dev -- --port 5174
+
+# Next.js
+npm run dev -- -p 3001
 
 # Express (API)
 PORT=3001 npm run dev
@@ -61,7 +64,7 @@ PORT=3001 npm run dev
 docker compose -p projekt-x-wt42 up -d
 ```
 
-Konvention: Hauptrepo behält Standard-Port (5173 / 3000), Worktrees zählen hoch.
+Konvention: Hauptrepo behält Standard-Port (Vite 5173, Next.js und API 3000), Worktrees zählen hoch.
 
 ## Datenbanken
 
