@@ -35,6 +35,7 @@ Agentic Code Review mit Policy-as-Code, ADRs für Architekturentscheidungen, Con
 ### Voraussetzungen
 
 - [Claude Code installieren](https://code.claude.com/docs): `npm install -g @anthropic-ai/claude-code`
+- Linux: `bubblewrap` und `socat` für die Sandbox (`sudo dnf install bubblewrap socat`), dazu `jq` für den Format-Hook
 
 ### Neues Projekt
 
@@ -83,7 +84,7 @@ Regeln, die Claude direkt liest:
 ├── CLAUDE.md                  # Kern-Regeln, jede Session
 ├── .worktreeinclude           # Files, die in neue Worktrees kopiert werden
 ├── .claude/
-│   ├── settings.json          # Berechtigungen und Hooks (im Repo)
+│   ├── settings.json          # Berechtigungen, Sandbox und Hooks (im Repo)
 │   ├── rules/                 # Tech-Stack, Security, Quality, A11y, Worktrees, Policies, Diagnose
 │   ├── commands/              # /commit-push-pr, /review, /build-and-test, /setup-statusline
 │   ├── agents/                # code-reviewer, verify-app, spec-writer
@@ -91,6 +92,7 @@ Regeln, die Claude direkt liest:
 │   ├── statusline.sh          # Statuszeile (macOS/Linux), optional, per /setup-statusline
 │   └── statusline.ps1         # Statuszeile (Windows), optional, per /setup-statusline
 ├── .mcp.json                  # MCP-Server (GitHub, erweiterbar)
+├── .github/                   # CI (Lint, Test, Build, gitleaks, audit) und Dependabot
 ├── docs/                      # Ausführliche Anleitungen
 ├── lessons.md                 # Lektionen aus realen Korrekturen
 └── CONTRIBUTING.md            # Wie ich das Playbook pflege

@@ -16,8 +16,7 @@ globs: "*.ts,*.tsx,*.js,*.jsx,*.vue,*.svelte,*.astro,*.php"
 - PHP: kein `$_GET`/`$_POST` direkt verwenden, immer sanitisieren.
 - Express: helmet, CORS mit expliziter Origin-Liste, Rate Limiting auf Auth-Routen.
 - KI-API-Keys (Anthropic, OpenAI, Gemini) nur serverseitig verwenden, nie im Frontend-Bundle.
-- Secret-Scanning (gitleaks oder trufflehog) muss in pre-commit und CI laufen.
+- Secret-Scanning (gitleaks) und `npm audit` laufen in CI (`.github/workflows/ci.yml`), Treffer blockieren Merge.
 - SBOM für jedes Production-Deployment generieren.
-- `npm audit` (und `composer audit` bei PHP) sind Teil der CI, Treffer blockieren Merge.
 
 Details in [`docs/devsecops.md`](../../docs/devsecops.md).

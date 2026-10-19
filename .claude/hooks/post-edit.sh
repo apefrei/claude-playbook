@@ -1,26 +1,18 @@
 #!/bin/bash
-# Post-Edit Hook: Formatierung nach jeder Dateiänderung
-# Wird automatisch von Claude Code ausgelöst (settings.json → PostToolUse)
+# Post-Edit Hook: formatiert die geänderte Datei (settings.json → PostToolUse).
+# Claude Code übergibt den Tool-Aufruf als JSON auf stdin.
 
-FILE="$CLAUDE_FILE_PATHS"
+FILE=$(jq -r '.tool_input.file_path // empty' 2>/dev/null)
+[ -n "$FILE" ] && [ -f "$FILE" ] || exit 0
+cd "$CLAUDE_PROJECT_DIR" 2>/dev/null || exit 0
 
-if [ -z "$FILE" ]; then
-  exit 0
-fi
-
-# Erkennung anhand Dateiendung
 case "$FILE" in
   *.ts|*.tsx|*.js|*.jsx|*.mjs|*.cjs|*.vue|*.svelte|*.astro|*.json|*.css|*.scss|*.html|*.md)
-    # TypeScript / JavaScript Projekte: Prettier (nur wenn im Projekt installiert)
-    if [ -f "package.json" ] && [ -x "node_modules/.bin/prettier" ]; then
-      ./node_modules/.bin/prettier --write "$FILE" 2>/dev/null
-    fi
+    # Nur ein im Projekt installiertes Prettier, nie per npx nachladen
+    [ -x node_modules/.bin/prettier ] && node_modules/.bin/prettier --write "$FILE" >/dev/null 2>&1
     ;;
   *.php)
-    # PHP: PHP CS Fixer (falls im Projekt installiert)
-    if [ -f "vendor/bin/php-cs-fixer" ]; then
-      ./vendor/bin/php-cs-fixer fix "$FILE" --quiet 2>/dev/null
-    fi
+    [ -x vendor/bin/php-cs-fixer ] && vendor/bin/php-cs-fixer fix "$FILE" --quiet >/dev/null 2>&1
     ;;
 esac
 

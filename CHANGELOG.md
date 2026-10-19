@@ -4,6 +4,13 @@ Alle nennenswerten Änderungen am Claude Playbook. Format nach [Keep a Changelog
 
 ## [Unreleased]
 
+### Sicherheit
+- `settings.json`: Sandbox aktiviert; `cat`, `head`, `tail`, `find`, `npx` nicht mehr ohne Rückfrage;
+  Änderungen an `.claude/` nur mit Rückfrage; `git push` fragt nach statt blockiert, Force-Push bleibt gesperrt
+- Post-Edit-Hook liest den Dateipfad aus stdin (dokumentierte Hook-Schnittstelle)
+- GitHub-MCP auf den offiziellen Remote-Server umgestellt, fine-grained Token
+- `.github/workflows/ci.yml` (gitleaks, Lint, Test, Build, `npm audit`) und `dependabot.yml` im Template
+
 ### Geändert
 - `.claude/rules/dev-stack.md` deckt alle gängigen JS/TS-Frameworks ab: Next.js, Vite + React,
   Vue/Nuxt, Svelte/SvelteKit, Astro, Angular, React Router sowie Express, Fastify, Hono und NestJS.
