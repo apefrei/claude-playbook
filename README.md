@@ -42,6 +42,7 @@ Agentic Code Review mit Policy-as-Code, ADRs für Architekturentscheidungen, Con
 1. Auf GitHub: "Use this template" → "Create a new repository"
 2. `git clone git@github.com:apefrei/<projekt>.git`
 3. `claude` im Projektverzeichnis starten
+4. `.claude/rules/dev-stack.md` und `.github/dependabot.yml` auf den Stack zuschneiden (siehe unten)
 
 Damit "Use this template" erscheint, muss das Repo einmalig unter Settings → General als **Template repository** markiert sein.
 
@@ -55,6 +56,8 @@ cp /pfad/zu/claude-playbook/.worktreeinclude ./.worktreeinclude
 ```
 
 Danach `.claude/rules/dev-stack.md` auf das Projekt zuschneiden: nicht zutreffende Stacks löschen.
+
+Projekte ohne `package.json` (z.B. Python, PHP): in `.github/dependabot.yml` das `npm`-Ökosystem entfernen oder durch das passende (`pip`, `composer`, `docker`) ersetzen. Sonst bricht jeder Dependabot-Lauf mit `package.json not found` ab.
 
 ## Wegweiser
 

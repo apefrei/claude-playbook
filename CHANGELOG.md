@@ -4,6 +4,13 @@ Alle nennenswerten Änderungen am Claude Playbook. Format nach [Keep a Changelog
 
 ## [Unreleased]
 
+### Behoben
+- CI: gitleaks scheiterte in privaten Repos bei Pull Requests (`403 Resource not accessible by integration`),
+  Workflow erhält jetzt `pull-requests: read`
+- CI: `actions/checkout` v7, `gitleaks/gitleaks-action` v3 (Node 24), `actions/setup-node` v7
+- `dev-stack.md`: Formulierung „Auth: bcrypt/argon2“ löste in neuen Repos einen gitleaks-Fehlalarm (`generic-api-key`) aus
+- Dependabot: Updates für GitHub Actions als ein gemeinsamer PR; README erklärt, wann `npm` zu entfernen ist
+
 ### Sicherheit
 - `settings.json`: Sandbox aktiviert; `cat`, `head`, `tail`, `find`, `npx` nicht mehr ohne Rückfrage;
   Änderungen an `.claude/` nur mit Rückfrage; `git push` fragt nach statt blockiert, Force-Push bleibt gesperrt

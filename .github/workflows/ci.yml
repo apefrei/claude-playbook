@@ -8,18 +8,20 @@ on:
 
 permissions:
   contents: read
+  # gitleaks-action lists the PR's commits via the API on pull_request events
+  pull-requests: read
 
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@v2
+      - uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         if: hashFiles('package.json') != ''
         with:
           node-version: lts/*

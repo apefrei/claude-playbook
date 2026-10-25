@@ -73,7 +73,7 @@ Immer den Paketmanager des Lockfiles verwenden, nie mischen. Ohne Lockfile: npm.
 ### Backend / API
 - Node.js mit Express, Fastify, Hono oder NestJS
 - Datenbank: PostgreSQL (`pg`, Drizzle oder Prisma)
-- Auth: bcrypt/argon2 für Passwörter, `jose` oder `jsonwebtoken` für JWT
+- Auth: Passwort-Hashing mit bcrypt oder argon2, JWT mit `jose` oder `jsonwebtoken`
 - Absicherung: helmet (bzw. Framework-Äquivalent), CORS, Rate Limiting
 
 ### Infrastruktur
